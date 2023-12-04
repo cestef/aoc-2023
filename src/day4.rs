@@ -19,14 +19,12 @@ pub fn part1_chars(input: &str) -> i32 {
             .split(" ")
             .filter(|e| !e.is_empty())
             .collect::<Vec<_>>();
-        println!("{:?} {:?}", winning, scratched);
         let matching = scratched
             .iter()
             .filter(|e| winning.contains(e))
             .collect::<Vec<_>>()
             .len();
 
-        println!("{}", matching);
         if matching == 0 {
             sum
         } else {
