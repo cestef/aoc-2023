@@ -1,9 +1,10 @@
+use anyhow::Result;
 use std::collections::HashMap;
 
 #[aoc(day2, part1, Chars)]
-pub fn part1_chars(input: &str) -> i32 {
+pub fn part1_chars(input: &str) -> Result<i32> {
     let max_cubes = HashMap::from([("red", 12), ("green", 13), ("blue", 14)]);
-    input.lines().fold(0, |sum, line| {
+    Ok(input.lines().fold(0, |sum, line| {
         let mut parts = line.split(":");
         let id = parts
             .next()
@@ -31,7 +32,7 @@ pub fn part1_chars(input: &str) -> i32 {
         } else {
             id
         }
-    })
+    }))
 }
 
 #[aoc(day2, part2, Chars)]
